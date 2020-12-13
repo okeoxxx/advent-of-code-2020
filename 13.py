@@ -17,7 +17,7 @@ for i, num in enumerate(file[1].split(',')):
 lowest = [time, 0]
 
 for id in bus_ids:
-    waiting_time = id - time % id
+    waiting_time = id - time % id if time % id else 0
     if lowest[0] > waiting_time:
         lowest = [waiting_time, id]
 
