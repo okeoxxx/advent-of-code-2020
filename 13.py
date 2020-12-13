@@ -12,7 +12,7 @@ for i, num in enumerate(file[1].split(',')):
         continue
     else:
         bus_ids.append(int(num))
-        delays.append(i%int(num))
+        delays.append(i % int(num))
 
 lowest = [time, 0]
 
@@ -29,13 +29,11 @@ for num in range(1, len(bus_ids)):
     dif = nums[-1] - nums[-2]
     trigger = 0
     a = nums[-2]
-    while True:
+    while trigger < 2:
         a += dif
         if bus_ids[num] - a % bus_ids[num] == delays[num]:
             nums.append(a)
             trigger += 1
-        if trigger == 2:
-            break
 
 result2 = nums[-2]
 
